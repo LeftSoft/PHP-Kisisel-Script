@@ -61,7 +61,7 @@ CREATE TABLE `ayar` (
 --
 
 INSERT INTO `ayar` (`ayar_id`, `ayar_logo`, `ayar_fovicon`, `ayar_url`, `ayar_title`, `ayar_appname`, `ayar_description`, `ayar_keywords`, `ayar_author`, `ayar_footer`, `ayar_tel`, `ayar_gsm`, `ayar_faks`, `ayar_mail`, `ayar_adres`, `ayar_maps`, `ayar_analystic`, `ayar_zopim`, `ayar_facebook`, `ayar_twitter`, `ayar_google`, `ayar_youtube`, `ayar_smtphost`, `ayar_smtpuser`, `ayar_smtppassword`, `ayar_smtpport`, `ayar_bakim`) VALUES
-(0, 'img/29437aa.png', 'img/30006aa.png', 'http://localhost/kisisel/', 'Kişisel Başlık', 'CanlıTV', 'Site Açıklaması', 'etiket,etiket2', '', 'Copyright © 2019 Maksis Otomasyon - Tüm Hakları Saklıdır.', '0216 540 20 04', '', '0216 540 20 05', 'batuhanmemuroglu34@gmail.com', 'İstanbul/Bağcılar', ' <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12044.177669756768!2d29.1472171!3d41.002401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa589a545e41f%3A0x5e203cbe83b3a995!2sMaksis%20Otomasyon!5e0!3m2!1str!2str!4v1567443838782!5m2!1str!2str\" width=\"1903\" height=\"550\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\"></iframe> ', '', '        ', 'https://facebook.com', 'https://twitter.com', 'www.google.com', 'www.youtube.com', 'deneme', 'deneme', 'deneme', '25', '1');
+(0, 'img/29437aa.png', 'img/30006aa.png', 'http://localhost/kisisel/', 'Kişisel Başlık', 'Kişisel Blog', 'Site Açıklaması', 'etiket,etiket2', '', 'Copyright © 2019 Ramazan Karaca - Tüm Hakları Saklıdır.', '0216 540 20 04', '', '0216 540 20 05', 'ramazankaraca5@gmail.com', 'İstanbul/Bağcılar', ' <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12044.177669756768!2d29.1472171!3d41.002401!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14caa589a545e41f%3A0x5e203cbe83b3a995!2sMaksis%20Otomasyon!5e0!3m2!1str!2str!4v1567443838782!5m2!1str!2str\" width=\"1903\" height=\"550\" frameborder=\"0\" style=\"border:0;\" allowfullscreen=\"\"></iframe> ', '', '        ', 'https://facebook.com', 'https://twitter.com', 'www.google.com', 'www.youtube.com', 'deneme', 'deneme', 'deneme', '25', '1');
 
 -- --------------------------------------------------------
 
@@ -146,7 +146,7 @@ CREATE TABLE `kullanici` (
 --
 
 INSERT INTO `kullanici` (`kullanici_id`, `kullanici_mail`, `kullanici_password`, `kullanici_ad`) VALUES
-(154, 'demo@demo.com', 'demo', 'CAnlitv');
+(154, 'demo@demo.com', 'demo', 'Kişisel Script');
 
 -- --------------------------------------------------------
 
