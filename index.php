@@ -63,7 +63,7 @@
 					
 					<!-- Banner -->
 					<div class="banner">
-  						<h1>Batuhan Memuroğlu</h1>
+  						<h1>Ramazan Karaca</h1>
 						<p class="cd-headline rotate-1">
 							<span>I am a</span>
 							<span class="cd-words-wrapper">
