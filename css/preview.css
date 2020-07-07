@@ -1,0 +1,306 @@
+/* -----------------------------------------------
+				CSS Styles
+--------------------------------------------------
+
+    Template Name: Leila - Personal Portfolio Template
+    Author: Malyarchuk
+    Copyright: 2019
+
+------------------------------------------------ */
+
+/* -----------------------------------
+		1. Body and Core Css
+----------------------------------- */
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
+* {
+	margin: 0;
+	padding: 0;
+	font-family: inherit;
+	outline: none !important;
+	list-style: none !important;
+	text-decoration: none !important;
+}
+
+*:after, 
+*:before {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: 'Poppins',sans-serif;
+	font-size: 14px;
+	color: #fff;
+	letter-spacing: 0.8px;
+	background-color: #1a2a41;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+a {
+	color: #fff;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+a:hover, 
+a:focus {
+	color: #1b7fd6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	margin: 0;
+	padding: 0; 
+	color: #fff;
+	font-weight: 600;
+}
+
+h1 {
+	font-size: 70px;
+}
+
+h2 {
+	font-size: 35px;
+}
+
+h3 {
+	font-size: 26px;
+}
+
+i, em {
+	font-style: normal; 
+}
+
+img {
+	max-width: 100%;
+}
+
+/* Buttom */
+.btn-st {
+	position: relative;
+	display: inline-block;
+	top: 0;
+	color: #000;
+	font-size: 15px;
+	cursor: pointer;
+	padding: 15px 22px;
+	margin-top: 30px;
+	text-transform: uppercase;
+	font-weight: 600;
+	border: none;
+	-webkit-border-radius: 30px;
+	border-radius: 30px;
+	background-color: #fff;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-transition: all .2s ease;
+	-moz-transition: all .2s ease;
+	-o-transition: all .2s ease;
+	transition: all .2s ease;
+}
+
+.btn-st:hover {
+	color: #000;
+	top: -10px;
+	-webkit-box-shadow: 0px 10px 15px rgba(255, 255, 255, 0.4);
+	box-shadow: 0px 10px 15px rgba(255, 255, 255, 0.4);
+	-webkit-transform: rotateX(25deg);
+	-ms-transform: rotateX(25deg);
+	transform: rotateX(25deg);
+}
+
+.btn-st:active {
+	top: 0px;
+	-webkit-box-shadow: 0px 0px 0px rgba(26, 42, 65, 0);
+	box-shadow: 0px 0px 0px rgba(26, 42, 65, 0);
+}
+
+.btn-st:focus {
+	color: #000;
+}
+
+/* Header */
+.header-site {
+	padding: 100px 0;
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.header-site:before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	opacity: .75;
+	background-color: #12171b;
+}
+
+.header-site .banner {
+	position: relative;
+	text-align: center;
+}
+
+.header-site .banner h1 {
+	color: #fff;
+	margin-bottom: 25px;
+}
+
+.header-site .banner p {
+	color: #fff;
+	font-size: 28px;
+}
+
+/* Demo */
+.sections {
+	position: relative;
+	padding-top: 100px;
+	background-color: #0e0f10;
+}
+
+.section-heading {
+	position: relative;
+	text-align: center;
+	margin-bottom: 100px;
+}
+
+.section-heading h2 {
+	color: #fff;
+	margin-bottom: 5px;
+	text-transform: uppercase;
+}
+
+.section-heading h2:before {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    left: calc(50% - 5px);
+    bottom: -25px;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.section-heading h2:after {
+	content: '';
+	position: absolute;
+	width: 8px;
+	height: 8px;
+	left: calc(50% - 4px);
+	bottom: -24px;
+	background-color: #fff;
+	-webkit-border-radius: 50%;
+	border-radius: 50%;
+	-webkit-animation: point-bounce 1.5s infinite;
+	animation: point-bounce 1.5s infinite;
+	z-index: 0;
+}
+
+.demos .demo-item {
+	position: relative;
+	display: block;
+	margin-bottom: 60px;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.demos .demo-item:hover {
+    -webkit-transform: translateY(-5px) scale(1.01);
+	-ms-transform: translateY(-5px) scale(1.01);
+	transform: translateY(-5px) scale(1.01);
+}
+
+.demos .demo-item img {
+	border-top-left-radius: 10px;
+	border-top-right-radius: 10px;
+}
+
+.demos .demo-item span {
+    padding: 20px 0 20px;
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    text-transform: uppercase;
+    background-color: rgba(0, 0, 0, .5);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.feature {
+	padding-bottom: 100px;
+}
+
+.feature:before {
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0px;
+	left: 0;
+	background-image: url(../img/preview/world-shape.png);
+	background-position: center center;
+	background-repeat: no-repeat;
+}
+
+.feature .feature-item {
+  text-align: center;
+  margin-bottom: 40px;
+  background-color: rgba(0, 0, 0, .5);
+  padding: 20px 10px;
+  border-radius: 10px;
+}
+
+.feature .feature-item img {
+    margin-bottom: 15px;
+}
+
+.feature .feature-item .title {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 15px; 
+}
+
+
+/* Point Bounce  Animation */
+@-webkit-keyframes point-bounce {
+	0% {
+		-webkit-transform: scale(0, 0);
+		transform: scale(0, 0);
+		opacity: 1
+	}
+	100% {
+		-webkit-transform: scale(2.5, 2.5);
+		transform: scale(2.5, 2.5);
+		opacity: 0
+	}
+}
+
+@keyframes point-bounce {
+	0% {
+		-webkit-transform: scale(0, 0);
+		transform: scale(0, 0);
+		opacity: 1
+	}
+	100% {
+		-webkit-transform: scale(2.5, 2.5);
+		transform: scale(2.5, 2.5);
+		opacity: 0
+	}
+}
