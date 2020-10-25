@@ -23,7 +23,7 @@
 			
 			<div class="header-mobile">
                 <a class="header-toggle"><i class="fas fa-bars"></i></a>
-                <h2>LeftSoft</h2>
+                <h2><?php echo $ayarcek['ayar_title'] ?></h2>
             </div>
 			
 			<!-- Left Block -->
