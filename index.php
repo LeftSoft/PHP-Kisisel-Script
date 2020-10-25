@@ -23,7 +23,7 @@
 			
 			<div class="header-mobile">
                 <a class="header-toggle"><i class="fas fa-bars"></i></a>
-                <h2>Baha</h2>
+                <h2>LeftSoft</h2>
             </div>
 			
 			<!-- Left Block -->
