@@ -69,18 +69,93 @@ islemkontrol();
   }
 
 }
-if (isset($_POST['hakkimdaduzenle'])) {
+if (isset($_POST['fovicokaydet'])) {
 islemkontrol();
+
+$uploads_dir = '../../img';
+
+  @$tmp_name = $_FILES['ayar_fovicon']["tmp_name"];
+  @$name = $_FILES['ayar_fovicon']["name"];
+
+  $benzersizsayi4=rand(20000,32000);
+  $refimgyol=substr($uploads_dir, 6)."/".$benzersizsayi4.$name;
+
+  @move_uploaded_file($tmp_name, "$uploads_dir/$benzersizsayi4$name");
+
+  
+  $duzenle=$db->prepare("UPDATE ayar SET
+    ayar_fovicon=:logo
+    WHERE ayar_id=0");
+  $update=$duzenle->execute(array(
+    'logo' => $refimgyol
+    ));
+
+  if ($update) {
+
+    $resimsilunlink=$_POST['eski_yoll'];
+    unlink("../../$resimsilunlink");
+
+    Header("Location:../sayfalar/genel-ayar.php?durum=ok");
+
+  } else {
+
+    Header("Location:../sayfalar/genel-ayar.php?durum=no");
+  }
+
+}
+if (isset($_POST['ayarlogokaydet'])) {
+islemkontrol();
+
+$uploads_dir = '../../img';
+
+  @$tmp_name = $_FILES['ayar_logo']["tmp_name"];
+  @$name = $_FILES['ayar_logo']["name"];
+
+  $benzersizsayi4=rand(20000,32000);
+  $refimgyol=substr($uploads_dir, 6)."/".$benzersizsayi4.$name;
+
+  @move_uploaded_file($tmp_name, "$uploads_dir/$benzersizsayi4$name");
+
+  
+  $duzenle=$db->prepare("UPDATE ayar SET
+    ayar_logo=:logo
+    WHERE ayar_id=0");
+  $update=$duzenle->execute(array(
+    'logo' => $refimgyol
+    ));
+
+  if ($update) {
+
+    $resimsilunlink=$_POST['eski_yol'];
+    unlink("../../$resimsilunlink");
+
+    Header("Location:../sayfalar/genel-ayar.php?durum=ok");
+
+  } else {
+
+    Header("Location:../sayfalar/genel-ayar.php?durum=no");
+  }
+
+}
+if (isset($_POST['resimduzenle'])) {
+islemkontrol();
+
+
+$uploads_dir = '../../img';
+
+  @$tmp_name = $_FILES['hakkimda_resim']["tmp_name"];
+  @$name = $_FILES['hakkimda_resim']["name"];
+
+  $benzersizsayi4=rand(20000,32000);
+  $refimg=substr($uploads_dir, 6)."/".$benzersizsayi4.$name;
+  
+@move_uploaded_file($tmp_name, "$uploads_dir/$benzersizsayi4$name");
   $hakkimda_id=$_POST['hakkimda_id'];
   $kaydet=$db->prepare("UPDATE hakkimda SET
-    hakkimda_ad=:hakkimda_ad,
-    hakkimda_adres=:hakkimda_adres,
-    hakkimda_aciklama=:hakkimda_aciklama
+    hakkimda_resim=:hakkimda_resim
     WHERE hakkimda_id={$_POST['hakkimda_id']}");
   $update=$kaydet->execute(array(
-    'hakkimda_ad' => $_POST['hakkimda_ad'],
-    'hakkimda_adres' => $_POST['hakkimda_adres'],
-    'hakkimda_aciklama' => $_POST['hakkimda_aciklama']
+    'hakkimda_resim' => $refimg
     ));
 
   if ($update) {
@@ -91,6 +166,171 @@ islemkontrol();
 
     Header("Location:../sayfalar/hakkimda-duzenle.php?durum=no&hakkimda_id=$hakkimda_id");
   }
+
+}
+if (isset($_POST['cvduzenle'])) {
+  if($_FILES["hakkimda_cv"]["type"] == "application/pdf")
+{
+islemkontrol();
+$hakkimda_id=$_POST['hakkimda_id'];
+$uploads_dir = '../../cv';
+
+  @$tmp_name = $_FILES['hakkimda_cv']["tmp_name"];
+  @$name = $_FILES['hakkimda_cv']["name"];
+
+  $benzersizsayi4=rand(20000,32000);
+  $cvyol=substr($uploads_dir, 6)."/".$benzersizsayi4.$name;
+  
+@move_uploaded_file($tmp_name, "$uploads_dir/$benzersizsayi4$name");
+  $kaydet=$db->prepare("UPDATE hakkimda SET
+    hakkimda_cv=:hakkimda_cv
+    WHERE hakkimda_id={$_POST['hakkimda_id']}");
+  $update=$kaydet->execute(array(
+    'hakkimda_cv' => $cvyol
+
+    ));
+
+  if ($update) {
+
+    Header("Location:../sayfalar/hakkimda-duzenle.php?durum=ok&hakkimda_id=$hakkimda_id");
+
+  } else {
+
+    Header("Location:../sayfalar/hakkimda-duzenle.php?durum=no&hakkimda_id=$hakkimda_id");
+  }
+}
+else
+{
+  $hakkimda_id=$_POST['hakkimda_id'];
+  Header("Location:../sayfalar/hakkimda-duzenle.php?durum=pdf&hakkimda_id=$hakkimda_id");
+}
+
+}
+if (isset($_POST['hakkimdaduzenle'])) {
+islemkontrol();
+  $hakkimda_id=$_POST['hakkimda_id'];
+  $kaydet=$db->prepare("UPDATE hakkimda SET
+    hakkimda_ad=:hakkimda_ad,
+    hakkimda_adres=:hakkimda_adres,
+    hakkimda_aciklama=:hakkimda_aciklama,
+    hakkimda_deneyim=:hakkimda_deneyim,
+    hakkimda_proje=:hakkimda_proje,
+    hakkimda_meslek=:hakkimda_meslek
+    WHERE hakkimda_id={$_POST['hakkimda_id']}");
+  $update=$kaydet->execute(array(
+    'hakkimda_ad' => $_POST['hakkimda_ad'],
+    'hakkimda_adres' => $_POST['hakkimda_adres'],
+    'hakkimda_aciklama' => $_POST['hakkimda_aciklama'],
+    'hakkimda_deneyim' => $_POST['hakkimda_deneyim'],
+    'hakkimda_proje' => $_POST['hakkimda_proje'],
+    'hakkimda_meslek' => $_POST['hakkimda_meslek']
+    ));
+
+  if ($update) {
+
+    Header("Location:../sayfalar/hakkimda-duzenle.php?durum=ok&hakkimda_id=$hakkimda_id");
+
+  } else {
+
+    Header("Location:../sayfalar/hakkimda-duzenle.php?durum=no&hakkimda_id=$hakkimda_id");
+  }
+
+
+
+}
+if (isset($_POST['hizmetduzenle'])) {
+islemkontrol();
+  $hizmet_id=$_POST['hizmet_id'];
+  $kaydet=$db->prepare("UPDATE hizmetlerim SET
+    hizmet_baslik=:hizmet_baslik,
+    hizmet_aciklama=:hizmet_aciklama,
+    hizmet_fa=:hizmet_fa
+    WHERE hizmet_id={$_POST['hizmet_id']}");
+  $update=$kaydet->execute(array(
+    'hizmet_baslik' => $_POST['hizmet_baslik'],
+    'hizmet_aciklama' => strip_tags($_POST['hizmet_aciklama']),
+    'hizmet_fa' => $_POST['hizmet_fa']
+    ));
+
+  if ($update) {
+
+    Header("Location:../sayfalar/hizmet-duzenle.php?durum=ok&hizmet_id=$hizmet_id");
+
+  } else {
+
+    Header("Location:../sayfalar/hizmet-duzenle.php?durum=no&hizmet_id=$hizmet_id");
+  }
+
+}
+if (isset($_POST['hizmetekle'])) {
+
+  $kaydet=$db->prepare("INSERT INTO hizmetlerim SET
+    hizmet_baslik=:hizmet_baslik,
+    hizmet_aciklama=:hizmet_aciklama,
+    hizmet_fa=:hizmet_fa
+    ");
+  $insert=$kaydet->execute(array(
+    'hizmet_baslik' => $_POST['hizmet_baslik'],
+    'hizmet_aciklama' => strip_tags($_POST['hizmet_aciklama']),
+    'hizmet_fa' => $_POST['hizmet_fa']
+    ));
+
+  if ($insert) {
+
+    Header("Location:../sayfalar/hizmet-listele.php?durum=ok");
+
+  } else {
+
+    Header("Location:../sayfalar/hizmet-listele.php?durum=no");
+  }
+
+
+
+
+}
+if (isset($_POST['ilgiduzenle'])) {
+islemkontrol();
+  $ilgi_id=$_POST['ilgi_id'];
+  $kaydet=$db->prepare("UPDATE ilgi SET
+    ilgi_ad=:ilgi_ad,
+    ilgi_fa=:ilgi_fa");
+  $update=$kaydet->execute(array(
+    'ilgi_ad' => $_POST['ilgi_ad'],
+    'ilgi_fa' => $_POST['ilgi_fa']
+    ));
+
+  if ($update) {
+
+    Header("Location:../sayfalar/ilgi-duzenle.php?durum=ok&ilgi_id=$ilgi_id");
+
+  } else {
+
+    Header("Location:../sayfalar/ilgi-duzenle.php?durum=no&ilgi_id=$ilgi_id");
+  }
+
+}
+if (isset($_POST['ilgiekle'])) {
+
+  $kaydet=$db->prepare("INSERT INTO ilgi SET
+    ilgi_ad=:ilgi_ad,
+    ilgi_fa=:ilgi_fa
+    ");
+  $insert=$kaydet->execute(array(
+    'ilgi_ad' => $_POST['ilgi_ad'],
+    'ilgi_fa' => $_POST['ilgi_fa']
+    ));
+
+  if ($insert) {
+
+    Header("Location:../sayfalar/ilgi-listele.php?durum=ok");
+
+  } else {
+
+    Header("Location:../sayfalar/ilgi-listele.php?durum=no");
+  }
+
+
+
 
 }
 
@@ -197,6 +437,40 @@ islemkontrol();
   }
 
 }
+if ($_GET['hizmetsil']=="ok") {
+islemkontrol();
+  $sil=$db->prepare("DELETE from hizmetlerim where hizmet_id=:hizmet_id");
+  $kontrol=$sil->execute(array(
+    'hizmet_id' => $_GET['hizmet_id']
+    ));
+
+  if ($kontrol) {
+
+    Header("Location:../sayfalar/hizmet-listele.php?durum=ok");
+
+  } else {
+
+    Header("Location:../sayfalar/hizmet-listele.php?durum=no");
+  }
+
+}
+if ($_GET['ilgisil']=="ok") {
+islemkontrol();
+  $sil=$db->prepare("DELETE from ilgi where ilgi_id=:ilgi_id");
+  $kontrol=$sil->execute(array(
+    'ilgi_id' => $_GET['ilgi_id']
+    ));
+
+  if ($kontrol) {
+
+    Header("Location:../sayfalar/ilgi-listele.php?durum=ok");
+
+  } else {
+
+    Header("Location:../sayfalar/ilgi-listele.php?durum=no");
+  }
+
+}
 if ($_GET['blogsil']=="ok") {
 islemkontrol();
   $sil=$db->prepare("DELETE from blog where blog_id=:blog_id");
@@ -294,8 +568,60 @@ if (isset($_POST['genelayarkaydet'])) {
   }
 }
 
+if (isset($_POST['sosyalkaydet'])) {
+ islemkontrol();
+  //Tablo güncelleme işlemi kodları...
+  $ayarkaydet=$db->prepare("UPDATE ayar SET
+    ayar_facebook=:ayar_facebook,
+    ayar_instagram=:ayar_instagram,
+    ayar_twitter=:ayar_twitter,
+    ayar_youtube=:ayar_youtube
+    WHERE ayar_id=0");
+
+  $update=$ayarkaydet->execute(array(
+    'ayar_facebook' => $_POST['ayar_facebook'],
+    'ayar_instagram' => $_POST['ayar_instagram'],
+    'ayar_twitter' => $_POST['ayar_twitter'],
+    'ayar_youtube' => $_POST['ayar_youtube']
+    ));
 
 
+  if ($update) {
+
+    header("Location:../sayfalar/genel-ayar.php?durum=ok");
+
+  } else {
+
+    header("Location:../sayfalar/genel-ayar.php?durum=no");
+  }
+}
+if (isset($_POST['iletisimkaydett'])) {
+ islemkontrol();
+  //Tablo güncelleme işlemi kodları...
+  $ayarkaydet=$db->prepare("UPDATE ayar SET
+    ayar_mail=:ayar_mail,
+    ayar_adres=:ayar_adres,
+    ayar_tel=:ayar_tel,
+    ayar_maps=:ayar_maps
+    WHERE ayar_id=0");
+
+  $update=$ayarkaydet->execute(array(
+    'ayar_mail' => $_POST['ayar_mail'],
+    'ayar_adres' => $_POST['ayar_adres'],
+    'ayar_tel' => $_POST['ayar_tel'],
+    'ayar_maps' => $_POST['ayar_maps']
+    ));
+
+
+  if ($update) {
+
+    header("Location:../sayfalar/genel-ayar.php?durum=ok");
+
+  } else {
+
+    header("Location:../sayfalar/genel-ayar.php?durum=no");
+  }
+}
 
 if (isset($_POST['logoduzenle'])) {
 islemkontrol();

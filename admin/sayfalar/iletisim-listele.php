@@ -1,6 +1,6 @@
 <?php 
 include 'header.php'; 
-$hakkimdasor=$db->prepare("SELECT * FROM hakkimda order by hakkimda_id");
+$hakkimdasor=$db->prepare("SELECT * FROM iletisim order by iletisim_id");
 $hakkimdasor->execute();
 
 
@@ -13,7 +13,7 @@ $hakkimdasor->execute();
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Hakkımda Listele</h1>
+            <h1>İletişim Listele</h1>
  <?php 
 
               if ($_GET['durum']=="ok") {?>
@@ -31,7 +31,7 @@ $hakkimdasor->execute();
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
-              <li class="breadcrumb-item active">Hakkımda Listele</li>
+              <li class="breadcrumb-item active">İletişim Listele</li>
             </ol>
           </div>
         </div>
@@ -54,10 +54,10 @@ $hakkimdasor->execute();
                 <thead>
                 <tr>
                   <th>Sıra</th>
-                  <th>Başlık</th>
-                  <th>Adres</th>
-                  <th>Açıklama</th>
-                  <th>Düzenle</th>
+                  <th>İsim</th>
+                  <th>Mail</th>
+                  <th>Mesaj</th>
+                  <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -68,9 +68,9 @@ $hakkimdasor->execute();
                 while($hakkimdacek=$hakkimdasor->fetch(PDO::FETCH_ASSOC)) { $say++?>
                 <tr>
                   <td><?php echo $say ?></td>
-                  <td><?php echo $hakkimdacek['hakkimda_ad']; ?></td>
-                  <td><?php echo $hakkimdacek['hakkimda_adres']; ?></td>
-                  <td><?php $detay = $hakkimdacek["hakkimda_aciklama"];
+                  <td><?php echo $hakkimdacek['iletisim_isim']; ?></td>
+                  <td><?php echo $hakkimdacek['iletisim_mail']; ?></td>
+                  <td><?php $detay = $hakkimdacek["iletisim_mesaj"];
 
                     $uzunluk = strlen($detay);
                   $limit = 50;
@@ -80,7 +80,7 @@ $hakkimdasor->execute();
                   }
                   echo $detay;
                    ?></td>
-                   <td><center><a href="hakkimda-duzenle.php?hakkimda_id=<?php echo $hakkimdacek['hakkimda_id']; ?>"><button class="btn btn-primary btn-xs">Düzenle</button></a></center></td>
+                   <td><center><a href="iletisim-oku.php?iletisim_id=<?php echo $hakkimdacek['iletisim_id']; ?>"><button class="btn btn-primary btn-xs">Oku</button></a></center></td>
         
                 </tr>
                  <?php  }
@@ -90,10 +90,10 @@ $hakkimdasor->execute();
                 <tfoot>
                 <tr>
                   <th>Sıra</th>
-                  <th>Başlık</th>
-                  <th>Adres</th>
-                  <th>Açıklama</th>
-                  <th>Düzenle</th>
+                  <th>İsim</th>
+                  <th>Mail</th>
+                  <th>Mesaj</th>
+                  <th></th>
 
                 </tr>
                 </tfoot>

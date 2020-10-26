@@ -1,6 +1,6 @@
 <?php 
 include 'header.php'; 
-$hakkimdasor=$db->prepare("SELECT * FROM hakkimda order by hakkimda_id");
+$hakkimdasor=$db->prepare("SELECT * FROM ilgi order by ilgi_id");
 $hakkimdasor->execute();
 
 
@@ -13,7 +13,7 @@ $hakkimdasor->execute();
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Hakkımda Listele</h1>
+            <h1>İlgi Alanlarımı Listele</h1>
  <?php 
 
               if ($_GET['durum']=="ok") {?>
@@ -31,7 +31,7 @@ $hakkimdasor->execute();
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
-              <li class="breadcrumb-item active">Hakkımda Listele</li>
+              <li class="breadcrumb-item active">Blog Listele</li>
             </ol>
           </div>
         </div>
@@ -47,17 +47,22 @@ $hakkimdasor->execute();
 
           <div class="card">
 
-            
+              <div class="card-header" align="right">
+               
+              <a href="ilgi-ekle.php"><button class="btn btn-success">İlgi Alanı Ekle</button></a>
+
+           
+            </div>
             <!-- /.card-header -->
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>Sıra</th>
-                  <th>Başlık</th>
-                  <th>Adres</th>
-                  <th>Açıklama</th>
-                  <th>Düzenle</th>
+                   <th>Sıra</th>
+                  <th>İlgi Alanı</th>
+                  <th>Class(ico)</th>
+                  <th></th>
+               <th></th>
                 </tr>
                 </thead>
                 <tbody>
@@ -68,20 +73,10 @@ $hakkimdasor->execute();
                 while($hakkimdacek=$hakkimdasor->fetch(PDO::FETCH_ASSOC)) { $say++?>
                 <tr>
                   <td><?php echo $say ?></td>
-                  <td><?php echo $hakkimdacek['hakkimda_ad']; ?></td>
-                  <td><?php echo $hakkimdacek['hakkimda_adres']; ?></td>
-                  <td><?php $detay = $hakkimdacek["hakkimda_aciklama"];
-
-                    $uzunluk = strlen($detay);
-                  $limit = 50;
-                  if($uzunluk > $limit)
-                  {
-                    $detay = substr($detay,0,$limit)."...";
-                  }
-                  echo $detay;
-                   ?></td>
-                   <td><center><a href="hakkimda-duzenle.php?hakkimda_id=<?php echo $hakkimdacek['hakkimda_id']; ?>"><button class="btn btn-primary btn-xs">Düzenle</button></a></center></td>
-        
+                  <td><?php echo $hakkimdacek['ilgi_ad']; ?></td>
+                  <td><?php echo $hakkimdacek['ilgi_fa']; ?></td>
+                   <td><center><a href="ilgi-duzenle.php?ilgi_id=<?php echo $hakkimdacek['ilgi_id']; ?>"><button class="btn btn-primary btn-xs">Düzenle</button></a></center></td>
+                   <td><center><a href="../ayar/islem.php?ilgi_id=<?php echo $hakkimdacek['ilgi_id']; ?>&ilgisil=ok"><button class="btn btn-danger btn-xs">Sil</button></a></center></td>
                 </tr>
                  <?php  }
 
@@ -89,12 +84,11 @@ $hakkimdasor->execute();
                 </tbody>
                 <tfoot>
                 <tr>
-                  <th>Sıra</th>
-                  <th>Başlık</th>
-                  <th>Adres</th>
-                  <th>Açıklama</th>
-                  <th>Düzenle</th>
-
+                    <th>Sıra</th>
+                  <th>İlgi Alanı</th>
+                  <th>Class(ico)</th>
+                  <th></th>
+                 <th></th>
                 </tr>
                 </tfoot>
               </table>
@@ -184,3 +178,4 @@ $hakkimdasor->execute();
 </script>
 </body>
 </html>
+

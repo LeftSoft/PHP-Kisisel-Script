@@ -1,6 +1,6 @@
 <?php include 'header.php'; 
 
-$projesor=$db->prepare("SELECT * FROM proje order by proje_id");
+$projesor=$db->prepare("SELECT COUNT(*) FROM proje");
 $projesor->execute();
 $kullanicisor=$db->prepare("SELECT * FROM kullanici order by kullanici_id");
 $kullanicisor->execute();
@@ -130,7 +130,7 @@ $hakkimdasor->execute();
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 1.0
     </div>
-    <strong>Copyright 2019</strong>
+    <strong>Copyright 2019 LeftSoft - Script Ücretsizdir Satılamaz!</strong>
   </footer>
 
   <!-- Control Sidebar -->

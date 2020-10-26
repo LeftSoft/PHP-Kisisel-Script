@@ -111,7 +111,7 @@ $ayarcek=$ayarsor->fetch(PDO::FETCH_ASSOC);
           </li>
          <li class="nav-item">
             <a href="hakkimda-listele.php" class="nav-link">
-              <i class="nav-icon far fa-file-video"></i>
+              <i class="nav-icon fas fa-book"></i>
               <p>
                 Hakkımda İşlemleri
               </p>
@@ -120,20 +120,46 @@ $ayarcek=$ayarsor->fetch(PDO::FETCH_ASSOC);
           
           <li class="nav-item">
             <a href="proje-listele.php" class="nav-link">
-              <i class="nav-icon far fa-money-bill-alt"></i>
+              <i class="nav-icon fas fa-code"></i>
               <p>
                 Proje İşlemleri
               </p>
             </a>
           </li>
+          
+          <li class="nav-item">
+            <a href="hizmet-listele.php" class="nav-link">
+              <i class="nav-icon  fas fa-bookmark"></i>
+              <p>
+                Hizmetlerim Listele
+              </p>
+            </a>
+          </li>
            <li class="nav-item">
             <a href="blog-listele.php" class="nav-link">
-              <i class="nav-icon far fa-money-bill-alt"></i>
+              <i class="nav-icon fas fa-blog"></i>
               <p>
                 Blog İşlemleri
               </p>
             </a>
           </li>
+          <li class="nav-item">
+            <a href="ilgi-listele.php" class="nav-link">
+              <i class="nav-icon fas fa-coffee"></i>
+              <p>
+                İlgi Alanlarım
+              </p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="iletisim-listele.php" class="nav-link">
+              <i class="nav-icon fas fa-bullhorn"></i>
+              <p>
+                İletişim
+              </p>
+            </a>
+          </li>
+          
           <li class="nav-item">
             <a href="genel-ayar.php" class="nav-link">
               <i class="nav-icon far fa-sun"></i>

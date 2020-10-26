@@ -69,8 +69,18 @@ $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
                   <li class="nav-item">
                     <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile" role="tab" aria-controls="custom-tabs-one-profile" aria-selected="false">Site Ayarı</a>
                   </li>
-                 
-                 
+                 <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile2" role="tab-2" aria-controls="custom-tabs-one-profile" aria-selected="false">Site Logo</a>
+                  </li>
+                 <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile3" role="tab-3" aria-controls="custom-tabs-one-profile" aria-selected="false">Fovico</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile4" role="tab-4" aria-controls="custom-tabs-one-profile" aria-selected="false">Sosyal Medya</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="custom-tabs-one-profile-tab" data-toggle="pill" href="#custom-tabs-one-profile5" role="tab-5" aria-controls="custom-tabs-one-profile" aria-selected="false">İletişim Bilgileri</a>
+                  </li>
                 </ul>
               </div>
               <div class="card-body">
@@ -81,21 +91,161 @@ $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
               
               <div class="form-group">
                         <label>Site Başlığı</label>
-                        <input type="text" name="ayar_title" class="form-control" placeholder="Deplasmandaki Takımla Karşılaşacak Takım İsmi" value="<?php echo $ayarcek['ayar_title']; ?>">
+                        <input type="text" name="ayar_title" class="form-control" placeholder="site title" value="<?php echo $ayarcek['ayar_title']; ?>">
                       </div>
  <div class="form-group">
                         <label>Site Açıklaması</label>
-                        <input type="text" name="ayar_description" class="form-control" placeholder="Deplasmandaki Takımla Karşılaşacak Takım İsmi" value="<?php echo $ayarcek['ayar_description'] ?>">
+                        <input type="text" name="ayar_description" class="form-control" placeholder="site açıklaması" value="<?php echo $ayarcek['ayar_description'] ?>">
                       </div>
                       <div class="form-group">
                         <label>Site Anahtar Kelime</label>
-                        <input type="text" name="ayar_keywords" class="form-control" placeholder="Canlı Tv İzle,BeinSport HD izle" value="<?php echo $ayarcek['ayar_keywords'] ?>">
+                        <input type="text" name="ayar_keywords" class="form-control" placeholder="kişisel,script" value="<?php echo $ayarcek['ayar_keywords'] ?>">
                       </div>
     <button type="submit" name="genelayarkaydet" class="btn btn-success">Düzenle</button>
 </form>
                   </div>
                
+
+
+
+                <div class="tab-pane fade" id="custom-tabs-one-profile2" role="tabpanel" aria-labelledby="custom-tabs-one-profile2-tab">
+             <div class="form-group">
+                        <label>Yüklü Logo</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+                    <?php 
+                    if (strlen($ayarcek['ayar_logo'])>0) {?>
+
+                    <img width="200"  src="../../<?php echo $ayarcek['ayar_logo']; ?>">
+
+                    <?php } else {?>
+
+
+                    <img width="200"  src="../../images/logo-yok.png">
+
+
+                    <?php } ?>
+
+                    
+                  </div>
+                      </div>
+<form action="../ayar/islem.php" method="POST" enctype="multipart/form-data">
+                      <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Resim Seç</label>
+                        <div class="input-group">
+                      <div class="custom-file">
+                        <input  type="file" name="ayar_logo" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Dosya Değiştir</label>
+                      </div>
+                      
+                    </div>
+                      </div>
+                    </div>
+                    <input type="hidden" name="eski_yol" value="<?php echo $ayarcek['ayar_logo']; ?>">
+    <button type="submit" name="ayarlogokaydet" class="btn btn-success">Düzenle</button>
+</form>
+                  </div>
                  
+
+                    <div class="tab-pane fade" id="custom-tabs-one-profile3" role="tabpanel" aria-labelledby="custom-tabs-one-profile2-tab">
+             <div class="form-group">
+                        <label>Yüklü Logo</label>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+
+                    <?php 
+                    if (strlen($ayarcek['ayar_fovicon'])>0) {?>
+
+                    <img width="200"  src="../../<?php echo $ayarcek['ayar_fovicon']; ?>">
+
+                    <?php } else {?>
+
+
+                    <img width="200"  src="../../images/logo-yok.png">
+
+
+                    <?php } ?>
+
+                    
+                  </div>
+                      </div>
+<form action="../ayar/islem.php" method="POST" enctype="multipart/form-data">
+                      <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>Fovico Seç</label>
+                        <div class="input-group">
+                      <div class="custom-file">
+                        <input  type="file" name="ayar_fovicon" class="custom-file-input" id="exampleInputFile">
+                        <label class="custom-file-label" for="exampleInputFile">Dosya Değiştir</label>
+                      </div>
+                      
+                    </div>
+                      </div>
+                    </div>
+                    <input type="hidden" name="eski_yoll" value="<?php echo $ayarcek['ayar_fovicon']; ?>">
+    <button type="submit" name="fovicokaydet" class="btn btn-success">Düzenle</button>
+</form>
+                  </div>
+
+                  <div class="tab-pane fade" id="custom-tabs-one-profile4" role="tabpanel" aria-labelledby="custom-tabs-one-profile4-tab">
+<form action="../ayar/islem.php" method="POST" enctype="multipart/form-data">
+                      
+ <div class="form-group">
+                        <label>Facebook</label>
+                        <input type="text" name="ayar_facebook" class="form-control" placeholder="facebook" value="<?php echo $ayarcek['ayar_facebook']; ?>">
+                      </div>
+ <div class="form-group">
+                        <label>İnstagram</label>
+                        <input type="text" name="ayar_instagram" class="form-control" placeholder="instagram" value="<?php echo $ayarcek['ayar_instagram'] ?>">
+                      </div>
+                      <div class="form-group">
+                        <label>Twitter</label>
+                        <input type="text" name="ayar_twitter" class="form-control" placeholder="twitter" value="<?php echo $ayarcek['ayar_twitter'] ?>">
+                      </div>
+<div class="form-group">
+                        <label>Youtube</label>
+                        <input type="text" name="ayar_youtube" class="form-control" placeholder="youtube" value="<?php echo $ayarcek['ayar_youtube'] ?>">
+                      </div>
+
+
+
+
+                    <input type="hidden" name="eski_yoll" value="<?php echo $ayarcek['ayar_fovicon']; ?>">
+    <button type="submit" name="sosyalkaydet" class="btn btn-success">Düzenle</button>
+</form>
+                  </div>
+
+
+
+
+
+
+
+
+                  <div class="tab-pane fade" id="custom-tabs-one-profile5" role="tabpanel" aria-labelledby="custom-tabs-one-profile5-tab">
+<form action="../ayar/islem.php" method="POST" enctype="multipart/form-data">
+                      
+ <div class="form-group">
+                        <label>E-Posta</label>
+                        <input type="text" name="ayar_mail" class="form-control" value="<?php echo $ayarcek['ayar_mail']; ?>">
+                      </div>
+ <div class="form-group">
+                        <label>Adres</label>
+                        <input type="text" name="ayar_adres" class="form-control" value="<?php echo $ayarcek['ayar_adres'] ?>">
+                      </div>
+                      <div class="form-group">
+                        <label>Telefon</label>
+                        <input type="text" name="ayar_tel" class="form-control" value="<?php echo $ayarcek['ayar_tel'] ?>">
+                      </div>
+<div class="form-group">
+                        <label>Google Maps(İframe)</label>
+                        <textarea type="text" name="ayar_maps" class="form-control" ><?php echo $ayarcek['ayar_maps'] ?></textarea>
+                      
+                      </div>
+                    <input type="hidden" name="eski_yoll" value="<?php echo $ayarcek['ayar_fovicon']; ?>">
+    <button type="submit" name="iletisimkaydett" class="btn btn-success">Düzenle</button>
+</form>
+                  </div>
                 </div>
               </div>
               <!-- /.card -->
@@ -104,30 +254,6 @@ $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
          
          
         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-           
-            
-                      
-                      
-                    
-                   
-                    
 
 
           

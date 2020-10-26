@@ -1,8 +1,8 @@
 <?php 
 include 'header.php'; 
-$hakkimdasor=$db->prepare("SELECT * FROM hakkimda where hakkimda_id=:id");
+$hakkimdasor=$db->prepare("SELECT * FROM iletisim where iletisim_id=:id");
 $hakkimdasor->execute(array(
-  'id' => $_GET['hakkimda_id']
+  'id' => $_GET['iletisim_id']
   ));
 
 $hakkimdacek=$hakkimdasor->fetch(PDO::FETCH_ASSOC);
@@ -19,7 +19,7 @@ $hakkimdacek=$hakkimdasor->fetch(PDO::FETCH_ASSOC);
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Hakkımda Düzenle</h1>
+            <h1>İletişim</h1>
             <?php 
 
               if ($_GET['durum']=="ok") {?>
@@ -30,16 +30,13 @@ $hakkimdacek=$hakkimdasor->fetch(PDO::FETCH_ASSOC);
 
               <b style="color:red;">İşlem Başarısız...</b>
 
-              <?php } elseif ($_GET['durum']=="pdf") {?>
-                 <b style="color:red;">Hata! Pdf Dosyası Eklemeniz Gerekiyor...</b>
-              
-            <?php } ?>
+              <?php }
 
-
+              ?>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="hakkimda-listele.php">Hakkımda Listele</a></li>
+              <li class="breadcrumb-item"><a href="kanal-listele.php">Hakkımda Listele</a></li>
               <li class="breadcrumb-item active">Hakkımda Düzenle</li>
             </ol>
           </div>
@@ -63,101 +60,26 @@ $hakkimdacek=$hakkimdasor->fetch(PDO::FETCH_ASSOC);
           <div class="card-body">
              
            
-              <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Yüklü Logo</label>
-                        <div class="col-md-6 col-sm-6 col-xs-12">
-
-                    <?php 
-                    if (strlen($hakkimdacek['hakkimda_resim'])>0) {?>
-
-                    <img width="200"  src="../../<?php echo $hakkimdacek['hakkimda_resim']; ?>">
-
-                    <?php } else {?>
-
-
-                    <img width="200"  src="../../images/logo-yok.png">
-
-
-                    <?php } ?>
-
-                    
-                  </div>
-                      </div>
-                    </div>
-
-                    <form action="../ayar/islem.php" method="POST" enctype="multipart/form-data">
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Resim Seç</label>
-                        <div class="input-group">
-                      <div class="custom-file">
-                        <input  type="file" name="hakkimda_resim" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Dosya Değiştir</label>
-                      </div>
-                      
-                    </div>
-                      </div>
-                    </div>
- <div align="left" class="col-sm-1">
-                <button type="submit" name="resimduzenle" class="btn btn-success">Düzenle</button>
-              </div>
-              <input type="hidden" name="hakkimda_id" value="<?php echo $hakkimdacek['hakkimda_id'] ?>">
-</form>
-                    <hr>
-                    <form action="../ayar/islem.php" method="POST" enctype="multipart/form-data">
-                    <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>CV Yükle</label>
-                        <div class="input-group">
-                      <div class="custom-file">
-                        <input type="file" name="hakkimda_cv" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">CV EKLE</label>
-                      </div>
-                      
-                    </div>
-                      </div>
-                    </div>
-                    <div align="left" class="col-sm-1">
-                <button type="submit" name="cvduzenle" class="btn btn-success">Düzenle</button>
-              </div>
-              <input type="hidden" name="hakkimda_id" value="<?php echo $hakkimdacek['hakkimda_id'] ?>">
-              </form>
-<hr>
-                    <form action="../ayar/islem.php" method="POST" enctype="multipart/form-data">
+              
              <div class="col-sm-12">
                       <div class="form-group">
-                        <label>Başlık</label>
-                        <input type="text" name="hakkimda_ad" class="form-control" placeholder="Ad" value="<?php echo $hakkimdacek['hakkimda_ad']; ?>">
+                        <label>Adı</label>
+                        <input type="text" disabled  class="form-control" placeholder="Ad" value="<?php echo $hakkimdacek['iletisim_isim']; ?>">
                       </div>
                     </div>
  <div class="col-sm-12">
                       <div class="form-group">
-                        <label>Adres</label>
-                        <input type="text" name="hakkimda_adres" class="form-control" placeholder="adres" value="<?php echo $hakkimdacek['hakkimda_adres']; ?>">
+                        <label>Mail</label>
+                        <input type="text" disabled class="form-control" placeholder="adres" value="<?php echo $hakkimdacek['iletisim_mail']; ?>">
                       </div>
                     </div>
              
-                   <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Deneyim</label>
-                        <input type="text" name="hakkimda_deneyim" class="form-control" placeholder="Deneyim" value="<?php echo $hakkimdacek['hakkimda_deneyim']; ?>">
-                      </div>
-                    </div>
-                       <div class="col-sm-12">
-                      <div class="form-group">
-                        <label>Proje</label>
-                        <input type="text" name="hakkimda_proje" class="form-control" placeholder="Gerçekleştirilen Proje" value="<?php echo $hakkimdacek['hakkimda_proje']; ?>">
-                      </div>
-                      <div class="form-group">
-                        <label>Meslek</label>
-                        <input type="text" name="hakkimda_meslek" class="form-control" placeholder="Şuan ki mesleğin" value="<?php echo $hakkimdacek['hakkimda_meslek']; ?>">
-                      </div>
-                    </div>
+                   
+                      
                     <div class="col-sm-12">
                       <div class="form-group">
-                        <label>Açıklama</label>
-                        <textarea  class="ckeditor" id="editor1" name="hakkimda_aciklama"><?php echo $hakkimdacek['hakkimda_aciklama']; ?></textarea>
+                        <label>Mesaj</label>
+                        <textarea  class="ckeditor" id="editor1"  disabled=""><?php echo $hakkimdacek['iletisim_mesaj']; ?></textarea>
                       </div>
                     </div>
                      <script type="text/javascript">
@@ -185,16 +107,13 @@ $hakkimdacek=$hakkimdasor->fetch(PDO::FETCH_ASSOC);
               );
 
             </script>
-                   <input type="hidden" name="hakkimda_id" value="<?php echo $hakkimdacek['hakkimda_id'] ?>">
-                   
-                    <div class="form-group">
+                  <div class="form-group">
               <div align="left" class="col-sm-1">
-                <button type="submit" name="hakkimdaduzenle" class="btn btn-success">Düzenle</button>
+                <a href="iletisim-listele.php"><button class="btn btn-success">Geri Dön</button></a>
               </div>
             </div>
 
-
-          </form>
+          
 
 
           </div>

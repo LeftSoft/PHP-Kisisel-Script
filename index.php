@@ -23,7 +23,7 @@
 			
 			<div class="header-mobile">
                 <a class="header-toggle"><i class="fas fa-bars"></i></a>
-                <h2><?php echo $ayarcek['ayar_title'] ?></h2>
+                <h2>Baha</h2>
             </div>
 			
 			<!-- Left Block -->
@@ -31,7 +31,7 @@
 		
 				<!-- Logo -->
 				<div class="logo">
-            		<img src="img/logo.png" alt="">
+            		<img src="<?php echo $ayarcek['ayar_logo']; ?>" alt="">
             	</div>
 				
           		<ul>
@@ -94,7 +94,7 @@
 					
 					<!-- Section Title -->
 					<div class="header-page mt-70 mob-mt">
-						<h2>About Me</h2>
+						<h2>Hakkımda</h2>
 						<span></span>
 					</div>
 				
@@ -107,7 +107,7 @@
 								<div class="row">
 									<div class="col-lg-3 col-sm-4">
 										<div class="photo">
-											<img alt="" src="img/user-photo.jpg">		
+											<img alt="" src="<?php echo $hakkimdacek['hakkimda_resim']; ?>">		
 										</div>	
 									</div>
 									<div class="col-lg-9 col-sm-8">
@@ -125,8 +125,8 @@
                                 		<div class="info-icon">
                                      		<i class="fas fa-award"></i>
                                      		<div class="desc-icon">
-												<h6>8 Years Job</h6>
-                                            	<p>Experience</p>
+												<h6><?php echo $hakkimdacek['hakkimda_deneyim']; ?></h6>
+                                            	<p>Deneyim</p>
                                        		</div>
                                 		</div>
                                 	</div>
@@ -136,8 +136,8 @@
                                 		<div class="info-icon">
                                      		<i class="fas fa-certificate"></i>
                                      		<div class="desc-icon">
-												<h6>500+ Projects</h6>
-                                            	<p>Completed</p>
+												<h6><?php echo $hakkimdacek['hakkimda_proje']; ?></h6>
+                                            	<p>Tamamlandı</p>
                                       		</div>
                                 		</div>
                                 	</div>
@@ -147,13 +147,13 @@
                                 		<div class="info-icon">
                                      		<i class="fas fa-user-astronaut"></i>
                                      		<div class="desc-icon">
-												<h6>Freelance</h6>
-                                           		<p>Available</p>
+												<h6><?php echo $hakkimdacek['hakkimda_meslek']; ?></h6>
+                                           		<p>Meslek</p>
                                         	</div>
                                 		</div>
                                 	</div>
 									<div class="col-lg-3 col-sm-12 pt-50">
-                                		<a href="#" class="btn-st">Download CV</a>
+                                		<a target="_blank" href="<?php echo $ayarcek['ayar_url'].$hakkimdacek['hakkimda_cv']; ?>" class="btn-st">CV'Yİ İNDİR</a>
                                 	</div>
 								</div>
 							</div>
@@ -166,7 +166,7 @@
 						<!-- Header Block -->
 						<div class="col-md-12">
 							<div class="header-box mb-50">
-								<h3>My Interests</h3>
+								<h3>İlgi Alanlarım</h3>
 							</div>
 						</div>
 					
@@ -174,84 +174,24 @@
 							<div class="box-2">
 								<div class="row">
 									<!-- Interests Item -->
+<?php 
+
+		$ilgi=$db->prepare("SELECT * FROM ilgi");
+    $ilgi->execute();
+
+    while($ilgicek=$ilgi->fetch(PDO::FETCH_ASSOC)) {
+
+		 ?>
 									<div class="col-lg-3 col-sm-6">
 										<div class="inter-icon">
-                                     		<i class="fas fa-music"></i>
+                                     		<i class="<?php echo $ilgicek["ilgi_fa"]; ?>"></i>
                                     	 	<div class="desc-inter">
-												<h6>Music</h6>
+												<h6><?php echo $ilgicek["ilgi_ad"]; ?></h6>
                                	        	</div>
 										</div>
 									</div>
+								<?php } ?>
 								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                     		<i class="fas fa-route"></i>
-                                     		<div class="desc-inter">
-												<h6>Travelling</h6>
-                                       		</div>
-                                		</div>
-									</div>
-								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                 	    	<i class="far fa-image"></i>
-                                  		   	<div class="desc-inter">
-												<h6>Photos</h6>
-                                  	     	</div>
-                                		</div>
-									</div>
-								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                    	 	<i class="fas fa-film"></i>
-                                     		<div class="desc-inter">
-												<h6>Movies</h6>
-                                   	    	</div>
-                                		</div>
-									</div>
-								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                 	    	<i class="fas fa-space-shuttle"></i>
-                                 	    	<div class="desc-inter">
-												<h6>Space</h6>
-                                	       	</div>
-                                		</div>
-									</div>
-								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-                                    	 	<i class="fas fa-book"></i>
-                                     		<div class="desc-inter">
-												<h6>Books</h6>
-                                    	   	</div>
-                                		</div>
-									</div>
-								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="fas fa-gamepad"></i>
-            	                         	<div class="desc-inter">
-												<h6>Video games</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
-								
-									<!-- Interests Item -->
-									<div class="col-lg-3 col-sm-6">
-										<div class="inter-icon">
-        	                             	<i class="fas fa-tree"></i>
-            	                         	<div class="desc-inter">
-												<h6>Forest</h6>
-                    	                   	</div>
-                        	        	</div>
-									</div>
 								</div>
 							</div>
 						</div>
@@ -263,45 +203,28 @@
 						<!-- Header Block -->
 						<div class="col-md-12">
 							<div class="header-box mb-50">
-								<h3>Services</h3>
+								<h3>Hizmetlerim</h3>
 							</div>
 						</div>
-					
+					<?php 
+
+		$hizmet=$db->prepare("SELECT * FROM hizmetlerim");
+    $hizmet->execute();
+
+    while($hizmetcekk=$hizmet->fetch(PDO::FETCH_ASSOC)) {
+
+		 ?>
 						<!-- Service Item -->
 						<div class="col-lg-6 col-sm-6">
 							<div class="service box-1 mb-40">
-								<i class="fas fa-desktop"></i>
-								<h4>Web Design</h4>
-								<p>Lorem Ipsum is simply dummy text of the Lorem has been the industry's standard dummy text ever.</p>
+								<i class="<?php echo $hizmetcekk["hizmet_fa"]; ?>"></i>
+								<h4><?php echo $hizmetcekk["hizmet_baslik"]; ?></h4>
+								<p><?php echo $hizmetcekk["hizmet_aciklama"]; ?></p>
 							</div>
 						</div>
 
-						<!-- Service Item -->
-						<div class="col-lg-6 col-sm-6">
-							<div class="service box-2 mb-40">
-								<i class="fas fa-cogs"></i>
-								<h4>Web Development</h4>
-								<p>Lorem Ipsum is simply dummy text of the Lorem has been the industry's standard dummy text ever.</p>
-							</div>
-						</div>
-
-						<!-- Service Item -->
-						<div class="col-lg-6 col-sm-6">
-							<div class="service box-2 mb-40">
-								<i class="fas fa-mobile-alt"></i>
-								<h4>Responsive Design</h4>
-								<p>Lorem Ipsum is simply dummy text of the Lorem has been the industry's standard dummy text ever.</p>
-							</div>
-						</div>
-
-						<!-- Service Item -->
-						<div class="col-lg-6 col-sm-6">
-							<div class="service box-1 mb-40">
-								<i class="fas fa-medkit"></i>
-								<h4>quick Support</h4>
-								<p>Lorem Ipsum is simply dummy text of the Lorem has been the industry's standard dummy text ever.</p>
-							</div>
-						</div>
+						<?php } ?>
+						
 					</div>
 			  	</section>
          	</div>
@@ -628,7 +551,56 @@
 					</div>
             	</section>
 			</div>
-			 
+			 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+			 <?php 
+
+
+							if (isset($_POST['iletisimekle'])) {
+
+														$isim = $_POST['iletisim_isim'];
+														$mail = $_POST['iletisim_mail'];
+														$eposta = $_POST['iletisim_mail'];
+														$mesaj = $_POST['iletisim_mesaj'];
+														if($isim == "" || $mail =="" || $mesaj=="") {
+
+														echo "<script type=\"text/javascript\">swal(\"HATA!\", \"Lütfen Alanı Boş Bırakmayın.\", \"error\");</script>";
+
+														}
+														
+														else if(!filter_var($eposta, FILTER_VALIDATE_EMAIL))
+														{
+																echo "<script type=\"text/javascript\">swal(\"HATA!\", \"E-Posta Adresi Geçersiz.\", \"error\");</script>";
+														}
+														else if(filter_var($eposta, FILTER_VALIDATE_EMAIL))
+														{
+															
+											
+														$ayarekle=$db->prepare("INSERT INTO iletisim SET
+															iletisim_isim=:iletisim_isim,
+															iletisim_mail=:iletisim_mail,
+															iletisim_mesaj=:iletisim_mesaj
+															");
+
+														$insert=$ayarekle->execute(array(
+															'iletisim_isim' => $_POST['iletisim_isim'],
+															'iletisim_mail' => $_POST['iletisim_mail'],
+															'iletisim_mesaj' => strip_tags($_POST['iletisim_mesaj'])
+															));
+
+
+														if ($insert) {
+													 
+															echo "<script type=\"text/javascript\">swal(\"Başarılı!\", \"Mesajınız İletilmiştir.\", \"success\");</script>";
+
+
+														} else {
+
+															echo "<script type=\"text/javascript\">swal(\"Başarısız!\", \"Teknik Hata.\", \"error\");</script>";
+														}
+							}
+													}
+								 ?>
 			<!-- Contact Section -->
          	<div class="page pt-contact" data-simplebar>
             	<section class="container">
@@ -643,7 +615,7 @@
 					<div class="row mt-100">
 						<div class="col-lg-12 col-sm-12">
 							<div class="contact-form ">
-                        		<form method="post" action="admin/ayar/islem.php" id="demo-form2" class="comment-form" novalidate="">
+                        		<form method="post" action="index.php#contact" id="demo-form2" class="comment-form" novalidate="">
 									<div class="row">
                             			<div class="col-lg-6 col-sm-12">
                                 			<input type="text" name="iletisim_isim" id="name" required="required" class="form-control" placeholder="İsim *">

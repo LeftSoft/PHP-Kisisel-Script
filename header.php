@@ -23,6 +23,7 @@ $hakkimdacek=$hakkimdasor->fetch(PDO::FETCH_ASSOC);
 <html lang="en">
 <base href="<?php echo $ayarcek['ayar_url']; ?>">
 <head>
+	
 		 <link rel="icon" href="<?php echo $ayarcek['ayar_fovicon']; ?>">
 		<!-- Meta -->
         <meta charset="UTF-8">

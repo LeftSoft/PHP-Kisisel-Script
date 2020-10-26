@@ -1,10 +1,8 @@
 <?php 
 include 'header.php'; 
-$hakkimdasor=$db->prepare("SELECT * FROM hakkimda order by hakkimda_id");
-$hakkimdasor->execute();
-
 
 ?>
+
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
@@ -13,101 +11,76 @@ $hakkimdasor->execute();
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Hakkımda Listele</h1>
- <?php 
-
-              if ($_GET['durum']=="ok") {?>
-
-              <b style="color:green;">İşlem Başarılı...</b>
-
-              <?php } elseif ($_GET['durum']=="no") {?>
-
-              <b style="color:red;">İşlem Başarısız...</b>
-
-              <?php }
-
-              ?>
+            <h1>İlgi Alanı Ekle</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
-              <li class="breadcrumb-item active">Hakkımda Listele</li>
+              <li class="breadcrumb-item"><a href="ilgi-listele.php">İlgi Alanlarımı Listele</a></li>
+              <li class="breadcrumb-item active">İlgi Alanı Ekle</li>
             </ol>
           </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>
-
-    <!-- Main content -->
+<!-- Main content -->
     <section class="content">
-      <div class="row">
-        <div class="col-12">
-          
-          <!-- /.card -->
+      <div class="container-fluid">
+        <!-- SELECT2 EXAMPLE -->
+        <div class="card card-default">
+          <div class="card-header">
+      
 
-          <div class="card">
-
-            
-            <!-- /.card-header -->
-            <div class="card-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Sıra</th>
-                  <th>Başlık</th>
-                  <th>Adres</th>
-                  <th>Açıklama</th>
-                  <th>Düzenle</th>
-                </tr>
-                </thead>
-                <tbody>
-                  <?php 
-
-                $say=0;
-
-                while($hakkimdacek=$hakkimdasor->fetch(PDO::FETCH_ASSOC)) { $say++?>
-                <tr>
-                  <td><?php echo $say ?></td>
-                  <td><?php echo $hakkimdacek['hakkimda_ad']; ?></td>
-                  <td><?php echo $hakkimdacek['hakkimda_adres']; ?></td>
-                  <td><?php $detay = $hakkimdacek["hakkimda_aciklama"];
-
-                    $uzunluk = strlen($detay);
-                  $limit = 50;
-                  if($uzunluk > $limit)
-                  {
-                    $detay = substr($detay,0,$limit)."...";
-                  }
-                  echo $detay;
-                   ?></td>
-                   <td><center><a href="hakkimda-duzenle.php?hakkimda_id=<?php echo $hakkimdacek['hakkimda_id']; ?>"><button class="btn btn-primary btn-xs">Düzenle</button></a></center></td>
-        
-                </tr>
-                 <?php  }
-
-          ?>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>Sıra</th>
-                  <th>Başlık</th>
-                  <th>Adres</th>
-                  <th>Açıklama</th>
-                  <th>Düzenle</th>
-
-                </tr>
-                </tfoot>
-              </table>
+            <div class="card-tools">
+              <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
+              <button type="button" class="btn btn-tool" data-card-widget="remove"><i class="fas fa-remove"></i></button>
             </div>
-            <!-- /.card-body -->
           </div>
-          <!-- /.card -->
+          <!-- /.card-header -->
+          <div class="card-body">
+             
+           <form action="../ayar/islem.php" method="POST" enctype="multipart/form-data">
+              
+           
+ <div class="col-sm-12">
+                      <div class="form-group">
+                        <label>İlgi Alanı</label>
+                        <input type="text" name="ilgi_ad" class="form-control" placeholder="İlgi Alanın">
+                      </div>
+                    </div>
+                    <div class="col-sm-12">
+                      <div  class="form-group">
+                        <label>Class(ico)</label> | İco Kodu Öğrenmek İçin (<a target="_blank" href="https://www.w3schools.com/icons/fontawesome5_icons_accessibility.asp">TIKLA</a>)
+                        <input type="text"  name="ilgi_fa" class="form-control" placeholder="Örn: fas fa-music | Font Awesome 5">
+                      </div>
+                    </div>
+             
+                     
+                    <div class="form-group">
+              <div align="left" class="col-sm-1">
+                <button type="submit" name="ilgiekle" class="btn btn-success">Ekle</button>
+              </div>
+            </div>
+
+
+          </form>
+
+
+          </div>
+          <!-- /.card-body -->
+          
         </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
+        <!-- /.card -->
+
+        
+
+
+
+
+
+        
+      </div><!-- /.container-fluid -->
     </section>
-    <!-- /.content -->
+    
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
