@@ -1,9 +1,9 @@
 # PHP Kisisel Script
  
 # Kurulum
--Dosya kök dizininde bulunan "baglan.php" dosyasını veritabanı bilgilerine göre düzenleme yapın.
+-Dosya kök dizininde bulunan <b>"baglan.php"</b> dosyasını veritabanı bilgilerine göre düzenleme yapın.
 <br>
--Sql "ayar" tablosunda bulunan "ayar_url" kısmına domaininizi kayıt edin.Sonuna "/" koymayı unutmayın. Ör: https://ornek.com/
+-Sql <b>"ayar"</b> tablosunda bulunan <b>"ayar_url"</b> kısmına domaininizi kayıt edin.Sonuna <b>"/"</b> koymayı unutmayın. Ör: https://ornek.com/
 
 # İçindekiler
 -Blog Paylaşımı
