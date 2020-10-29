@@ -662,7 +662,7 @@
 					<div class="google-map box-1 mt-100 mb-100">
 						<div class="row">
 							<div class="col-lg-12">
-								<div id="map" data-latitude="40.712775" data-longitude="-74.005973" data-zoom="14"></div>
+								<?php echo $ayarcek["ayar_maps"]; ?>
 							</div>
 						</div>
 					</div>

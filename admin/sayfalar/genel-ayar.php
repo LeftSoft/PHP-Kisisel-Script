@@ -238,7 +238,7 @@ $kullanicicek=$kullanicisor->fetch(PDO::FETCH_ASSOC);
                         <input type="text" name="ayar_tel" class="form-control" value="<?php echo $ayarcek['ayar_tel'] ?>">
                       </div>
 <div class="form-group">
-                        <label>Google Maps(İframe)</label>
+                        <label>Google Maps(İframe) | Önerilen Boyut: 1050x300</label>
                         <textarea type="text" name="ayar_maps" class="form-control" ><?php echo $ayarcek['ayar_maps'] ?></textarea>
                       
                       </div>
