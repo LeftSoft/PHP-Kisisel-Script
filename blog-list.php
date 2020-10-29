@@ -70,7 +70,7 @@
                             		<div class="detalis">
                                 		<ul class="meta">
                                     		<li><i class="fa fa-calendar"></i><?php echo $blogcek['blog_tarih']; ?></li>
-                                    		<li><i class="icon fa fa-user"></i>Batuhan Memuroğlu</li>
+                                    		<li><i class="icon fa fa-user"></i><?php echo $hakkimdacek['hakkimda_ad']; ?></li>
                                 		</ul>
                                 		<h4><a href="blog/<?=seo($blogcek["blog_isim"]).'/'.$blogcek["blog_id"]?>"><?php echo $blogcek['blog_isim']; ?></a></h4>
                                 		<div class="text"><?php $detay = $blogcek["blog_aciklama"];
