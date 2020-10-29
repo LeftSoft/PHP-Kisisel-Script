@@ -1,5 +1,5 @@
 RewriteEngine on
-ErrorDocument 404 http://localhost/kisisel/404.php
+#ErrorDocument 404 http://localhost/kisisel/404.php
 RewriteRule ^blog/([0-9a-zA-Z-_]+)/([0-9]+)$ single-blog.php?sef=$1&blog_id=$2 [L,QSA]
 
 

@@ -79,10 +79,10 @@
 					<!-- Social -->
 					<div class="social">
             			<ul>
-                			<li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                			<li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                			<li><a href="#"><i class="fab fa-instagram"></i></a></li>
-							<li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                			<li><a href="<?php echo $ayarcek['ayar_facebook']; ?>"><i class="fab fa-facebook-f"></i></a></li>
+                			<li><a href="<?php echo $ayarcek['ayar_twitter']; ?>"><i class="fab fa-twitter"></i></a></li>
+                			<li><a href="<?php echo $ayarcek['ayar_instagram']; ?>"><i class="fab fa-instagram"></i></a></li>
+							<li><a href="<?php echo $ayarcek['ayar_youtube']; ?>"><i class="fab fa-youtube"></i></a></li>
             			</ul>
         			</div>
 			  	</section>  
