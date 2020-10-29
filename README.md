@@ -7,8 +7,9 @@
 <br>
 Admin ulaşma yolu "/admin" şeklindedir.
 <br>
-#Admin Bilgileri
+# Admin Bilgileri
 <b>Eposta:</b> demo@demo.com
+<br>
 <b>Şifre:</b> demo
 # İçindekiler
 -Blog Paylaşımı
