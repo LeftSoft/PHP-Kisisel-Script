@@ -67,10 +67,7 @@
 						<p class="cd-headline rotate-1">
 							<span>I am a</span>
 							<span class="cd-words-wrapper">
-								<b class="is-visible">Developer</b>
-								<b>Photographer</b>
-								<b>Designer</b>
-								<b>Freelancer</b>
+								<b class="is-visible"><?php echo $hakkimdacek['hakkimda_ad']; ?></b>
 							</span>
 						</p>
 					</div>
