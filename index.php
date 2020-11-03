@@ -67,7 +67,7 @@
 						<p class="cd-headline rotate-1">
 							<span>I am a</span>
 							<span class="cd-words-wrapper">
-								<b class="is-visible"><?php echo $hakkimdacek['hakkimda_ad']; ?></b>
+								<b class="is-visible"><?php echo $hakkimdacek['hakkimda_meslek']; ?></b>
 							</span>
 						</p>
 					</div>
