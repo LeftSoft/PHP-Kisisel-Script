@@ -44,7 +44,7 @@ height:700px;
 		
 			<!-- Logo -->
 			<div class="logo">
-            	<img src="img/logo.png" alt="">
+            	<img src="<?php echo $ayarcek['ayar_logo']; ?>" alt="">
             </div>
 				
           	<ul>
@@ -117,5 +117,4 @@ height:700px;
         <script src="https://maps.google.com/maps/api/js?sensor=false"></script>
     </body>
 
-<!-- Mirrored from baha.malyarchuk.space/single-blog.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 30 Nov 2019 15:09:20 GMT -->
 </html>
