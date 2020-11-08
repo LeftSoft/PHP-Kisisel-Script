@@ -21,7 +21,7 @@
 		
 			<!-- Logo -->
 			<div class="logo">
-            	<img src="<?php echo $ayarcek['ayar_logo']; ?>" alt="">
+            	<a href="#home"><img src="<?php echo $ayarcek['ayar_logo']; ?>" alt=""></a>
             </div>
 				
           	<ul>

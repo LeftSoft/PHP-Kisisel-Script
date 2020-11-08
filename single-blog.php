@@ -36,7 +36,7 @@ height:700px;
 		
 		<div class="header-mobile">
         	<a class="header-toggle"><i class="fas fa-bars"></i></a>
-        	<h2><?php echo $ayarcek['ayar_logo']; ?></h2>
+        	<h2><?php echo $blogcek['blog_isim']; ?></h2>
         </div>
 			
 		<!-- Left Block -->
@@ -44,7 +44,7 @@ height:700px;
 		
 			<!-- Logo -->
 			<div class="logo">
-            	<img src="<?php echo $ayarcek['ayar_logo']; ?>" alt="">
+            	<a href="index.php"><img src="<?php echo $ayarcek['ayar_logo']; ?>" alt=""></a>
             </div>
 				
           	<ul>
@@ -73,7 +73,7 @@ height:700px;
             	
             </nav>
 			<div class="blog-image">
-				<img src="<?php echo $blogcek["blog_resim"]; ?>" class="kapak" alt="">
+				<img src="<?php echo $blogcek["blog_resim"]; ?>" alt="">
 			</div>
 			<div class="row blog-container">
 				<div class="col-md-10 offset-md-1">
